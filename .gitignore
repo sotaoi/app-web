@@ -1,0 +1,16 @@
+!.gitkeep
+
+# env
+/.env
+
+# app
+/node_modules
+
+# ide
+/.idea
+/.vscode
+
+# build
+/var/tmp.build
+/var/build/*
+!/var/build/.gitkeep
