@@ -48,9 +48,12 @@ const WebpackConfigFactory = (webpackEnv) => {
     },
     resolve: {
       alias: {
-        'react': path.resolve('./node_modules/react'),
+        react: path.resolve('./node_modules/react'),
         'react-dom': path.resolve('./node_modules/react-dom'),
         'react-native': path.resolve('./var/generic-mock'),
+        redux: path.resolve('./node_modules/redux'),
+        'react-redux': path.resolve('./node_modules/react-redux'),
+        //
         fs: path.resolve('./var/generic-mock'),
         path: path.resolve('./var/generic-mock'),
       },

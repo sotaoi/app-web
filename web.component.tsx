@@ -58,9 +58,11 @@ const WebComponent = (): null | React.ReactElement => {
       continue;
     }
 
+    let ignorePrefix = false;
+
     let hasAtLeastOneRouteMatch = false;
     for (let routeScheme of Object.keys(layoutConfig.routes)) {
-      routeScheme = Navigation.parseRouteScheme(layoutName, layoutConfig.prefix, routeScheme);
+      [routeScheme, ignorePrefix] = Navigation.parseRouteScheme(layoutName, layoutConfig.prefix, routeScheme);
       if (Navigation.isMatch(layoutName, RouteChange.getPathname(), routeScheme)) {
         hasAtLeastOneRouteMatch = true;
         break;
@@ -88,7 +90,7 @@ const WebComponent = (): null | React.ReactElement => {
     RouterEvents.setIsRunningConditions(false);
 
     for (let [routeScheme, RouteComponent] of Object.entries(layoutConfig.routes)) {
-      routeScheme = Navigation.parseRouteScheme(layoutName, layoutConfig.prefix, routeScheme);
+      [routeScheme, ignorePrefix] = Navigation.parseRouteScheme(layoutName, layoutConfig.prefix, routeScheme);
       if (!Navigation.isMatch(layoutName, RouteChange.getCurrentPath(), routeScheme)) {
         continue;
       }
