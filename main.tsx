@@ -44,7 +44,7 @@ const main = async (): Promise<void> => {
     Loading,
     ErrorComponent,
     true,
-    null,
+    {},
   );
 };
 

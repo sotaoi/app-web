@@ -7,6 +7,15 @@ const path = require('path');
 const { paths } = require('@app/web/var/paths');
 const { envVarWhitelist } = require('@sotaoi/omni/env-var-whitelist');
 const { getBundleJson } = require('@app/web/var/get-bundle-json');
+const { mockList } = require('@app/web/var/mock-list');
+
+const alias = {
+  react: path.resolve('./node_modules/react'),
+  'react-dom': path.resolve('./node_modules/react-dom'),
+  redux: path.resolve('./node_modules/redux'),
+  'react-redux': path.resolve('./node_modules/react-redux'),
+};
+mockList.map((mockItem) => (alias[mockItem] = path.resolve('./var/generic-mock')));
 
 const WebpackConfigFactory = (webpackEnv) => {
   process.env.NODE_ENV = webpackEnv;
@@ -47,16 +56,7 @@ const WebpackConfigFactory = (webpackEnv) => {
       ],
     },
     resolve: {
-      alias: {
-        react: path.resolve('./node_modules/react'),
-        'react-dom': path.resolve('./node_modules/react-dom'),
-        'react-native': path.resolve('./var/generic-mock'),
-        redux: path.resolve('./node_modules/redux'),
-        'react-redux': path.resolve('./node_modules/react-redux'),
-        //
-        fs: path.resolve('./var/generic-mock'),
-        path: path.resolve('./var/generic-mock'),
-      },
+      alias,
       extensions: ['.tsx', '.ts', '.js'],
     },
     optimization: {
