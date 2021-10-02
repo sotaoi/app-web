@@ -7,7 +7,7 @@
     "node": "14.x"
   },
   "scripts": {
-    "bootstrap": "npm install --no-audit --no-funds",
+    "bootstrap": "npm install --no-audit --no-fund",
     "postinstall": "ts-node ./scripts/hooks/posthook",
     "build:web": "ts-node ./scripts/build-web",
     "clean:web": "ts-node ./scripts/clean-web",
