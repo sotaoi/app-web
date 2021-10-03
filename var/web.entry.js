@@ -10,6 +10,8 @@ const https = require('https');
 const yargs = require('yargs');
 const { paths } = require('@app/web/var/paths');
 
+let serverInitInterval = null;
+
 const main = async () => {
   const argv = yargs
     .option('info', {
@@ -22,7 +24,6 @@ const main = async () => {
   if (!argv.servebuild) {
     throw new Error('--servebuild is required (--servebuild yes / --servebuild no)');
   }
-  let serverInitInterval = null;
   let serverInitTries = 0;
   let bundleInstallInterval = null;
   const PORT = '8080';
