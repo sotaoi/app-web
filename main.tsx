@@ -15,10 +15,10 @@ import { MainLayout } from '@app/web/components/main-layout/main-layout';
 import { WebComponent } from '@app/web/web.component';
 import * as ReactRedux from 'react-redux';
 
-const appInfo = getAppInfo(null);
-const domain = getAppDomain(null);
-
 const main = async (): Promise<void> => {
+  const appInfo = getAppInfo(null);
+  const domain = getAppDomain(null);
+
   const appKernel = new AppKernel();
   const routerComponentFn = () => (
     <Router
