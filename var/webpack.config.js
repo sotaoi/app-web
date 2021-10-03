@@ -46,7 +46,13 @@ const WebpackConfigFactory = (webpackEnv) => {
         },
         {
           test: /\.(tsx|ts|js)$/,
-          include: [paths().appWebPath, paths().appClientPath, paths().sotaoiClientPath, paths().sotaoiOmniPath],
+          include: [
+            paths().appWebPath,
+            paths().appOmniPath,
+            paths().appClientPath,
+            paths().sotaoiClientPath,
+            paths().sotaoiOmniPath,
+          ],
           loader: require.resolve('ts-loader'),
           exclude: [/node_modules/, /var/],
           options: {

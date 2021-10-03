@@ -13,6 +13,7 @@ const paths = () => {
     clientHtml: resolveRoot('./app-web/var/index.html'),
     appWebPath: resolveRoot('./app-web'),
     appClientPath: resolveRoot('./app-client'),
+    appOmniPath: resolveRoot('./app-omni'),
     sotaoiClientPath: resolveRoot('./packages/sotaoi-client'),
     sotaoiOmniPath: resolveRoot('./packages/sotaoi-omni'),
   };
