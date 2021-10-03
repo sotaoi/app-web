@@ -3,7 +3,7 @@ import { Router } from '@sotaoi/client/router';
 import { Bootstrap } from '@sotaoi/client/bootstrap';
 import { createStore } from 'redux';
 import { Loading } from '@app/client/components/generic/loading';
-import { ErrorComponent } from '@app/client/components/generic/error-component';
+import { ErrorComponent } from '@app/web/components/generic/error-component';
 import { getAppInfo, getAppDomain } from '@sotaoi/omni/get-app-info';
 import { AppKernel } from '@sotaoi/client/app-kernel';
 import { routes } from '@app/client/routes';
@@ -33,6 +33,7 @@ const main = async (): Promise<void> => {
           reactRedux: ReactRedux,
         },
       )}
+      errorComponent={ErrorComponent}
     />
   );
   Bootstrap.init(
