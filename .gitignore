@@ -2,6 +2,7 @@
 
 # env
 /.env
+/env.json
 
 # app
 /node_modules
