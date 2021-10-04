@@ -11,8 +11,7 @@
     "start:web": "ts-node ./var/web.entry.js --servebuild no --info ../packages/sotaoi-omni/app-info.json",
     "start:web:prod": "PORT=8080 node ./var/web.entry.js --servebuild yes",
     "build:web": "ts-node ./scripts/build-web",
-    "clean:web": "ts-node ./scripts/clean-web",
-    "postinstall": "ts-node ./scripts/hooks/posthook"
+    "clean:web": "ts-node ./scripts/clean-web"
   },
   "devDependencies": {
     "@app/client": "file:../app-client",
@@ -36,7 +35,6 @@
     "@sotaoi/client": "^0.9.1",
     "@sotaoi/omni": "^0.9.1",
     "css-loader": "^5.0.1",
-    "dotenv": "^8.2.0",
     "express": "4.17.1",
     "html-webpack-plugin": "^4.3.0",
     "react": "16.13.1",

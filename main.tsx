@@ -16,8 +16,8 @@ import { WebComponent } from '@app/web/web.component';
 import * as ReactRedux from 'react-redux';
 
 const main = async (): Promise<void> => {
-  const appInfo = getAppInfo(null);
-  const domain = getAppDomain(null);
+  const appInfo = getAppInfo();
+  const domain = getAppDomain();
 
   const appKernel = new AppKernel();
   const routerComponentFn = () => (
