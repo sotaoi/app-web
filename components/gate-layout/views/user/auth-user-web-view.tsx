@@ -5,6 +5,7 @@ import { AuthUserForm } from '@app/web/components/gate-layout/forms/user/auth-us
 
 class AuthUserWebView extends AuthUserView {
   public web(data: ViewData<AuthUserViewProps>): null | React.ReactElement {
+    // @ts-ignore
     return <AuthUserForm {...this.init(data)} />;
   }
 }

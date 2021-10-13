@@ -9,6 +9,7 @@ import {
 class RegisterUserWebView extends RegisterUserView {
   public web(data: ViewData<RegisterUserFormProps>): null | React.ReactElement {
     const { form } = this.init(data);
+    // @ts-ignore
     return <RegisterUserForm form={form} />;
   }
 }
