@@ -21,6 +21,7 @@ const main = async (): Promise<void> => {
 
   const appKernel = new AppKernel();
   const routerComponentFn = () => (
+    // @ts-ignore
     <Router
       {...routes(
         [HomeWebView, AuthUserWebView, RegisterUserWebView],
