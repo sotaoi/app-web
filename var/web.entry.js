@@ -1,4 +1,4 @@
-const { config } = require('@app/omni/config');
+import { config } from '@app/omni/config';
 config('');
 const fs = require('fs');
 const path = require('path');

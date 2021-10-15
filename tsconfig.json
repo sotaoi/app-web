@@ -19,11 +19,10 @@
     "outDir": "./var/build",
     "paths": {
       "@app/client/*": ["../app-client/*"],
-      "@app/omni/*": ["../app-omni/*"],
       "@app/web/*": ["./*"],
       "@sotaoi/client/*": ["../packages/sotaoi-client"],
       "@sotaoi/omni/*": ["../packages/sotaoi-omni"]
     }
   },
-  "exclude": ["./node_modules", "./var"]
+  "exclude": ["./build", "./node_modules", "./var"]
 }
