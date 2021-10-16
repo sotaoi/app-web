@@ -1,5 +1,5 @@
-import { config } from '@app/omni/config';
-config('');
+const { init } = require('@app/omni/init');
+init();
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');

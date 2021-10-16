@@ -93,7 +93,7 @@ const WebpackConfigFactory = (webpackEnv) => {
       }),
       new webpack.DefinePlugin({
         __REACT_DEVTOOLS_GLOBAL_HOOK__: '({ isDisabled: true })',
-        'process.env': JSON.stringify(JSON.stringify(envVars)),
+        'process.env': JSON.stringify(envVars),
       }),
     ],
   };
