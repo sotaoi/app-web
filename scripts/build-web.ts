@@ -1,3 +1,5 @@
+#!/bin/env node
+
 import fs from 'fs';
 import path from 'path';
 import webpack, { Stats } from 'webpack';
