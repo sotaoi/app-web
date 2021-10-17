@@ -73,15 +73,18 @@ const main = async () => {
       )
       .listen(PORT);
     !getBundleJson().installed &&
-      (bundleInstallInterval = setInterval(() => {
-        const BundleJson = getBundleJson();
-        if (!BundleJson.installed) {
-          return;
-        }
-        clearInterval(bundleInstallInterval);
-        server.close();
-        setTimeout(main, 3000);
-      }, 3000));
+      (() => {
+        const bundleInstallIntervalFn = () => {
+          const BundleJson = getBundleJson();
+          if (!BundleJson.installed) {
+            return;
+          }
+          clearInterval(bundleInstallInterval);
+          server.close();
+          setTimeout(main, 3000);
+        };
+        bundleInstallInterval = setInterval(bundleInstallIntervalFn, 3000);
+      })();
     return;
   }
 
@@ -116,15 +119,19 @@ const main = async () => {
   });
   devServer.listen(parseInt(PORT), HOST);
   !getBundleJson().installed &&
-    (bundleInstallInterval = setInterval(() => {
-      const BundleJson = getBundleJson();
-      if (!BundleJson.installed) {
-        return;
-      }
-      clearInterval(bundleInstallInterval);
-      devServer.close();
-      setTimeout(main, 3000);
-    }, 3000));
+    (() => {
+      const bundleInstallIntervalFn = () => {
+        const BundleJson = getBundleJson();
+        if (!BundleJson.installed) {
+          return;
+        }
+        clearInterval(bundleInstallInterval);
+        devServer.close();
+        setTimeout(main, 3000);
+      };
+      bundleInstallInterval = setInterval(bundleInstallIntervalFn, 3000);
+      bundleInstallIntervalFn();
+    })();
 };
 
 main();
