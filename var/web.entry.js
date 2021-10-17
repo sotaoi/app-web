@@ -32,9 +32,9 @@ const main = async () => {
   const PORT = '8080';
   const HOST = '0.0.0.0';
   clearTimeout(serverInitInterval);
-  const keyPath = path.resolve(appInfo.sslKey);
-  const certPath = path.resolve(appInfo.sslCert);
-  const chainPath = path.resolve(appInfo.sslCa);
+  const keyPath = require.resolve(appInfo.sslKey);
+  const certPath = require.resolve(appInfo.sslCert);
+  const chainPath = require.resolve(appInfo.sslCa);
   if (!fs.existsSync(keyPath) || !fs.existsSync(certPath) || !fs.existsSync(chainPath)) {
     if (serverInitTries === 60) {
       console.error('server failed to start because at least one ssl certificate file is missing');
