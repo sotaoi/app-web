@@ -10,8 +10,8 @@
     "bootstrap": "npm install --no-audit --no-fund",
     "start:web": "ts-node ./var/web.entry.js --servebuild no --info ../packages/sotaoi-omni/app-info.json",
     "start:web:prod": "PORT=8080 node ./var/web.entry.js --servebuild yes",
-    "build:web": "ts-node ./scripts/build-web",
-    "clean:web": "ts-node ./scripts/clean-web"
+    "build:web": "node ./scripts/build/build-web",
+    "clean:web": "node ./scripts/clean/clean-web"
   },
   "devDependencies": {
     "@app/client": "file:../app-client",

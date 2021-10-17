@@ -15,7 +15,3 @@
 /var/tmp.build
 /var/build/*
 !/var/build/.gitkeep
-
-/deployment/*
-!/deployment/.gitkeep
-/tmp.deployment
