@@ -12,6 +12,7 @@
     "start:web": "ts-node ./var/web.entry.js --servebuild no --info ../packages/sotaoi-omni/app-info.json",
     "start:web:prod": "PORT=8080 node ./var/web.entry.js --servebuild yes",
     "build:web": "node ./scripts/build/build-web",
+    "clean:bootstrap": "node ./scripts/clean/clean-bootstrap",
     "clean:web": "node ./scripts/clean/clean-web",
     "postinstall": "node ./scripts/hook/hook-postinstall"
   },
@@ -36,6 +37,7 @@
     "@app/web": "file:./",
     "@material-ui/core": "^4.12.2",
     "@sotaoi/client": "git+https://github.com/sotaoi/client#0.9.1",
+    "@sotaoi/config": "git+https://github.com/sotaoi/config#0.9.1",
     "@sotaoi/omni": "git+https://github.com/sotaoi/omni#0.9.1",
     "css-loader": "^5.0.1",
     "express": "4.17.1",

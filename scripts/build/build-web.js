@@ -6,8 +6,13 @@ const webpack = require('webpack');
 const { paths } = require('@app/web/var/paths');
 const { WebpackConfigFactory } = require('@app/web/var/webpack.config');
 const { Helper } = require('@sotaoi/omni/helper');
+const { getAppInfo } = require('@sotaoi/omni/get-app-info');
+const Config = require('@sotaoi/config').Config.init(require('@app/omni/env.json'));
 
 const main = async () => {
+  console.log(getAppInfo());
+  console.log(Config.dumpEnvVars());
+
   // generate configuration
   const config = WebpackConfigFactory('production');
 

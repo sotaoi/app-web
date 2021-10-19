@@ -19,6 +19,9 @@ const main = async (): Promise<void> => {
   const appInfo = getAppInfo();
   const domain = getAppDomain();
 
+  console.log(getAppInfo());
+  console.log(getAppDomain());
+
   const appKernel = new AppKernel();
   const routerComponentFn = () => (
     <Router

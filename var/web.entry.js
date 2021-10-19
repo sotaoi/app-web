@@ -13,9 +13,9 @@ const { getAppInfo } = require('@sotaoi/omni/get-app-info');
 
 let serverInitInterval = null;
 
-const appInfo = getAppInfo();
-
 const main = async () => {
+  const appInfo = getAppInfo();
+
   const argv = yargs
     .option('info', {
       alias: 'i',
@@ -85,6 +85,7 @@ const main = async () => {
         };
         bundleInstallInterval = setInterval(bundleInstallIntervalFn, 3000);
       })();
+    console.info(`Started production web server on port "${PORT}"`);
     return;
   }
 
