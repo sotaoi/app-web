@@ -6,13 +6,9 @@ const webpack = require('webpack');
 const { paths } = require('@app/web/var/paths');
 const { WebpackConfigFactory } = require('@app/web/var/webpack.config');
 const { Helper } = require('@sotaoi/omni/helper');
-const { getAppInfo } = require('@sotaoi/omni/get-app-info');
 const Config = require('@sotaoi/config').Config.init(require('@app/omni/env.json'));
 
 const main = async () => {
-  console.log(getAppInfo());
-  console.log(Config.dumpEnvVars());
-
   // generate configuration
   const config = WebpackConfigFactory('production');
 
@@ -40,6 +36,19 @@ const main = async () => {
     Helper.copyRecursiveSync(fs, path, paths().publicPath, paths().clientBuild);
     Helper.copyRecursiveSync(fs, path, paths().clientTmpBuild, paths().clientBuild);
     fs.rmdirSync(paths().clientTmpBuild, { recursive: true });
+
+    let appInfoJs = '      // template for regeneration\n';
+    appInfoJs += '      window.envvars = {\n';
+    appInfoJs += '        //\n';
+    for (const [key, value] of Object.entries(Config.dumpEnvVars())) {
+      appInfoJs += `        '${key}': '${value}',\n`;
+    }
+    appInfoJs += '      };\n';
+    const indexHtml = fs.readFileSync(path.resolve(paths().clientBuild, 'index.html')).toString();
+    fs.writeFileSync(
+      path.resolve(paths().clientBuild, 'index.html'),
+      indexHtml.replace('<!-- >> window.envvars << -->', `<script>\n${appInfoJs}    </script>`),
+    );
 
     console.info(`Hash: ${hash}\nBuild time: ${(endTime - startTime) / 1000}s\n`);
   });
