@@ -1,5 +1,7 @@
 #!/bin/env node
 
+process.env.NODE_ENV = 'production';
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -40,7 +42,12 @@ const main = async () => {
     let appInfoJs = '      // template for regeneration\n';
     appInfoJs += '      window.envvars = {\n';
     appInfoJs += '        //\n';
-    for (const [key, value] of Object.entries(Config.dumpEnvVars())) {
+    for (const [key, value] of Object.entries({
+      ...Config.dumpEnvVars(),
+      SIGNATURE_1: Config.get('DB_NAME'),
+      SIGNATURE_2: Config.get('DB_CONTROL_PANEL_NAME'),
+      NODE_ENV: 'production',
+    })) {
       appInfoJs += `        '${key}': '${value}',\n`;
     }
     appInfoJs += '      };\n';
