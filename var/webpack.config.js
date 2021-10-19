@@ -99,4 +99,4 @@ const WebpackConfigFactory = (webpackEnv) => {
   };
 };
 
-export { WebpackConfigFactory };
+module.exports = { WebpackConfigFactory };
