@@ -12,6 +12,7 @@
     "start:web": "ts-node ./var/web.entry.js --servebuild no --info ../packages/sotaoi-omni/app-info.json",
     "start:web:prod": "NODE_ENV=production PORT=8080 forever start -v -c node ./var/web.entry.js --servebuild yes > ./server-output.log 2>&1 ./server-output.log",
     "stop:web:prod": "forever stop ./var/web.entry.js",
+    "deploy:web": "node ./scripts/deploy/deploy-web",
     "build:web": "node ./scripts/build/build-web",
     "clean:bootstrap": "node ./scripts/clean/clean-bootstrap",
     "clean:web": "node ./scripts/clean/clean-web",
