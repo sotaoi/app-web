@@ -14,7 +14,7 @@ import { GateLayout } from '@app/web/components/gate-layout/gate-layout';
 import { MainLayout } from '@app/web/components/main-layout/main-layout';
 import { WebComponent } from '@app/web/web.component';
 import * as ReactRedux from 'react-redux';
-import { env } from '@app/omni/config';
+import { store } from '@sotaoi/client/store';
 
 const main = async (): Promise<void> => {
   const appInfo = getAppInfo();
